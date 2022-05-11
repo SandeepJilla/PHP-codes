@@ -3,7 +3,7 @@
     try {
         
         //reading input from csv line by line
-        $csvFile = file('C:\Users\sjilla\Downloads\dsf.csv');
+        $csvFile = file('dsf.csv');
         $data = [];
         foreach ($csvFile as $line) {
             $data[] = str_getcsv($line);
@@ -19,7 +19,7 @@
           $csv_output .=  "UPDATE platform SET name='".$data[$x][1]."' WHERE rowid=".$data[$x][0].";";
         }
 
-        #writing csv output to the defined filename
+        #writing csv output to the file
         if (is_writable(dirname($filename))) {
             if (!$handle = fopen($filename, 'w')) {
                 echo "Cannot open file (".$filename.")";
